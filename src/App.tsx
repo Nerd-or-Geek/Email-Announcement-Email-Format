@@ -3,6 +3,7 @@ import { EmailConfig, createDefaultEmailConfig } from './types';
 import { ThemeEditor } from './components/ThemeEditor';
 import { HeaderFooterEditor } from './components/HeaderFooterEditor';
 import { SectionEditor } from './components/SectionEditor';
+import { TemplateSaver } from './components/TemplateSaver';
 import { 
   generateInlineHtml, 
   copyToClipboard, 
@@ -102,6 +103,11 @@ const App: React.FC = () => {
               onChange={(sections) => setConfig({ ...config, sections })}
             />
           )}
+
+          <TemplateSaver
+            currentConfig={config}
+            onLoadTemplate={(loadedConfig) => setConfig(loadedConfig)}
+          />
 
           <div className="sidebar-section" style={{ marginTop: '20px' }}>
             <h3>⚙️ Actions</h3>
